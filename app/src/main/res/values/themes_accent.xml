@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Accent overlays applied on top of Theme.GitForge by ThemeManager.applyAccent(). -->
+<resources>
+    <style name="ThemeOverlay.GitForge.Accent.Indigo" parent="">
+        <item name="colorPrimary">@color/gf_accent_indigo</item>
+        <item name="colorOnPrimary">@color/gf_on_accent_indigo</item>
+    </style>
+    <style name="ThemeOverlay.GitForge.Accent.Slate" parent="">
+        <item name="colorPrimary">@color/gf_accent_slate</item>
+        <item name="colorOnPrimary">@color/gf_on_accent_slate</item>
+    </style>
+    <style name="ThemeOverlay.GitForge.Accent.Green" parent="">
+        <item name="colorPrimary">@color/gf_accent_green</item>
+        <item name="colorOnPrimary">@color/gf_on_accent_green</item>
+    </style>
+    <style name="ThemeOverlay.GitForge.Accent.Cyan" parent="">
+        <item name="colorPrimary">@color/gf_accent_cyan</item>
+        <item name="colorOnPrimary">@color/gf_on_accent_cyan</item>
+    </style>
+    <style name="ThemeOverlay.GitForge.Accent.Violet" parent="">
+        <item name="colorPrimary">@color/gf_accent_violet</item>
+        <item name="colorOnPrimary">@color/gf_on_accent_violet</item>
+    </style>
+    <style name="ThemeOverlay.GitForge.Accent.Purple" parent="">
+        <item name="colorPrimary">@color/gf_accent_purple</item>
+        <item name="colorOnPrimary">@color/gf_on_accent_purple</item>
+    </style>
+    <style name="ThemeOverlay.GitForge.Accent.Orange" parent="">
+        <item name="colorPrimary">@color/gf_accent_orange</item>
+        <item name="colorOnPrimary">@color/gf_on_accent_orange</item>
+    </style>
+    <style name="ThemeOverlay.GitForge.Accent.Amber" parent="">
+        <item name="colorPrimary">@color/gf_accent_amber</item>
+        <item name="colorOnPrimary">@color/gf_on_accent_amber</item>
+    </style>
+    <style name="ThemeOverlay.GitForge.Accent.Red" parent="">
+        <item name="colorPrimary">@color/gf_accent_red</item>
+        <item name="colorOnPrimary">@color/gf_on_accent_red</item>
+    </style>
+</resources>

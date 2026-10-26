@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Typography from the approved reference (Inter or similar):
+  H1 28/32 Bold, H2 22/28 SemiBold, H3 18/24 SemiBold, Body 16/24 Regular, Caption 14/20 Regular, Button 16/20 Medium.
+  Inter font files are not bundled yet, so each style uses the system sans-serif family (android:fontFamily).
+  Once Inter is added under res/font, change android:fontFamily in the six styles below (docs/DESIGN_TOKENS.md).
+  SemiBold is approximated by sans-serif-medium on this font stack.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="TextAppearance.GitForge.H1" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">32sp</item>
+    </style>
+
+    <style name="TextAppearance.GitForge.H2" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">28sp</item>
+    </style>
+
+    <style name="TextAppearance.GitForge.H3" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+    <style name="TextAppearance.GitForge.Body" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">24sp</item>
+    </style>
+
+    <style name="TextAppearance.GitForge.Caption" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">20sp</item>
+    </style>
+
+    <style name="TextAppearance.GitForge.Button" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineHeight" tools:targetApi="p">20sp</item>
+    </style>
+</resources>

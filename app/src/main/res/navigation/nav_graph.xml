@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Navigation foundation. Every top-level destination currently uses PendingFeatureFragment, which states
+  plainly that the screen is not built yet. As real screens land, each destination's android:name is
+  replaced in place (ids and the bottom-navigation menu stay the same). The "phase" argument is the phase in
+  which the destination becomes functional.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.asifqureshi.gitforge.ui.common.PendingFeatureFragment"
+        android:label="@string/nav_home">
+        <argument
+            android:name="phase"
+            android:defaultValue="5"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/repositoriesFragment"
+        android:name="com.asifqureshi.gitforge.ui.common.PendingFeatureFragment"
+        android:label="@string/nav_repositories">
+        <argument
+            android:name="phase"
+            android:defaultValue="5"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aiFragment"
+        android:name="com.asifqureshi.gitforge.ui.common.PendingFeatureFragment"
+        android:label="@string/nav_ai">
+        <argument
+            android:name="phase"
+            android:defaultValue="8"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.asifqureshi.gitforge.ui.common.PendingFeatureFragment"
+        android:label="@string/nav_history">
+        <argument
+            android:name="phase"
+            android:defaultValue="7"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.asifqureshi.gitforge.ui.common.PendingFeatureFragment"
+        android:label="@string/nav_settings">
+        <argument
+            android:name="phase"
+            android:defaultValue="9"
+            app:argType="integer" />
+    </fragment>
+</navigation>
