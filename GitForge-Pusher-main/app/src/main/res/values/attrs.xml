@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Status colours that Material 3 has no built-in attribute for. Resolved per light/dark theme. -->
-    <attr name="gfColorSuccess" format="color" />
-    <attr name="gfColorWarning" format="color" />
-    <attr name="gfColorInfo" format="color" />
-    <attr name="gfColorTextMuted" format="color" />
-</resources>
