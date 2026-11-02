@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GitForge Pusher</string>
-
-    <!-- Bottom navigation / top-level destinations -->
+    <string name="action_back">Back</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_close">Close</string>
+    <string name="action_create">Create</string>
+    <string name="action_done">Done</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_save">Save</string>
+    <string name="no_browser">No web browser is installed to open this link.</string>
     <string name="nav_home">Home</string>
     <string name="nav_repositories">Repositories</string>
     <string name="nav_ai">AI</string>
     <string name="nav_history">History</string>
     <string name="nav_settings">Settings</string>
-
-    <!-- Screens that are not built yet -->
-    <string name="pending_feature_status">This screen is not implemented yet. Its functionality is planned for Phase %1$d.</string>
-    <string name="pending_feature_status_generic">This screen is not implemented yet.</string>
-
-    <!-- Accent colour names -->
     <string name="accent_indigo">Indigo</string>
     <string name="accent_slate">Slate</string>
     <string name="accent_green">Green</string>
@@ -23,4 +23,217 @@
     <string name="accent_orange">Orange</string>
     <string name="accent_amber">Amber</string>
     <string name="accent_red">Red</string>
+    <string name="login_title">Sign in</string>
+    <string name="login_subtitle">Push projects to your GitHub repositories from your phone.</string>
+    <string name="login_oauth_title">Sign in with GitHub</string>
+    <string name="login_oauth_desc">GitHub shows you a short code to enter on github.com. The app never sees your password and no client secret is stored in it.</string>
+    <string name="login_scope_public">Public repositories only</string>
+    <string name="login_scope_private">Public and private repositories</string>
+    <string name="login_oauth_button">Continue with GitHub</string>
+    <string name="login_oauth_not_configured">GitHub sign-in is not configured in this build. The app owner must register a GitHub OAuth app, enable Device Flow and build with its client ID (see docs/GITHUB_SETUP.md). You can still sign in with a token below.</string>
+    <string name="login_device_instructions">Open GitHub and enter this code:</string>
+    <string name="login_open_github">Open github.com/login/device</string>
+    <string name="login_copy_code">Copy code</string>
+    <string name="login_waiting">Waiting for you to approve the sign-in on GitHub…</string>
+    <string name="login_token_title">Sign in with a personal access token</string>
+    <string name="login_token_help">Fine-grained token (recommended): GitHub, Settings, Developer settings, Personal access tokens. Select only the repositories you need and grant Contents: Read and write, plus Metadata: Read. Classic token: scope public_repo for public repositories, or repo for private ones. Never share a token with anyone.</string>
+    <string name="login_token_hint">Personal access token</string>
+    <string name="login_token_button">Sign in with token</string>
+    <string name="login_privacy_note">Your token is encrypted with the Android Keystore and stored only on this device. It is sent only to api.github.com.</string>
+    <string name="home_greeting" formatted="true">Welcome, %1$s</string>
+    <string name="home_greeting_loading">Welcome</string>
+    <string name="home_upload_button">Upload a project</string>
+    <string name="home_recent">Recent repositories</string>
+    <string name="home_recent_empty">No repositories found for this account.</string>
+    <string name="stat_loading">…</string>
+    <string name="stat_zero">0</string>
+    <string name="stat_unavailable">—</string>
+    <string name="stat_none_yet">—</string>
+    <string name="stat_repositories">Repositories</string>
+    <string name="stat_repositories_public">Public repositories</string>
+    <string name="stat_pushed_today">Pushed today</string>
+    <string name="stat_success_rate">Upload success rate</string>
+    <string name="stat_ai_provider">AI provider</string>
+    <string name="stat_ai_not_configured">Not set up</string>
+    <string name="repos_search_hint">Search repositories</string>
+    <string name="filter_all">All</string>
+    <string name="filter_public">Public</string>
+    <string name="filter_private">Private</string>
+    <string name="repos_empty_none">This account has no repositories.</string>
+    <string name="repos_empty_no_match">No repositories match.</string>
+    <string name="visibility_private">Private</string>
+    <string name="visibility_public">Public</string>
+    <string name="repo_default_branch" formatted="true">Default branch: %1$s</string>
+    <string name="repo_no_default_branch">No default branch</string>
+    <string name="repo_archived">Archived</string>
+    <string name="repo_read_only">Read-only</string>
+    <string name="repo_detail_title">Repository</string>
+    <string name="repo_branches">Branches</string>
+    <string name="repo_no_branches">This repository has no branches yet. Create an initial commit on GitHub (for example add a README), then come back.</string>
+    <string name="repo_open_github">Open on GitHub</string>
+    <string name="repo_read_only_note">Your account only has read access to this repository, so you cannot upload or create branches here.</string>
+    <string name="repo_select_branch">Select a branch to upload to</string>
+    <string name="repo_upload_to" formatted="true">Upload a project to %1$s</string>
+    <string name="branch_tag_default">Default</string>
+    <string name="branch_tag_protected">Protected</string>
+    <string name="branch_create_button">Create branch</string>
+    <string name="branch_create_title">Create branch</string>
+    <string name="branch_create_from" formatted="true">The new branch starts from %1$s.</string>
+    <string name="branch_create_hint">New branch name</string>
+    <string name="branch_created" formatted="true">Branch %1$s created</string>
+    <string name="branch_create_exists">A branch with this name already exists, or the name was rejected by GitHub.</string>
+    <string name="branch_create_not_allowed">You do not have permission to create branches in this repository.</string>
+    <string name="upload_title">Upload project</string>
+    <string name="upload_no_target">Choose a repository and branch first.</string>
+    <string name="upload_target" formatted="true">Target: %1$s on %2$s</string>
+    <string name="upload_choose_target">Choose repository</string>
+    <string name="upload_change_target">Change repository</string>
+    <string name="upload_pick_intro">Select what to upload. Nothing is sent to GitHub until you review the changes and confirm.</string>
+    <string name="upload_pick_zip">Select ZIP archive</string>
+    <string name="upload_pick_folder">Select folder</string>
+    <string name="upload_pick_files">Select files</string>
+    <string name="upload_limits">Limits: 5,000 files, 10 MB per file, 150 MB in total, 100 MB ZIP size. VCS folders (.git), node_modules and OS junk files are skipped automatically.</string>
+    <string name="upload_importing">Reading and checking files…</string>
+    <string name="upload_comparing">Comparing with GitHub…</string>
+    <string name="upload_staged_summary" formatted="true">%1$d files ready (%2$s)</string>
+    <string name="upload_skipped_header" formatted="true">%1$d entries were skipped:</string>
+    <string name="upload_strip_root" formatted="true">Remove the top-level folder \"%1$s\"</string>
+    <string name="upload_folder_hint">Target folder in the repository (optional)</string>
+    <string name="upload_compare">Compare with GitHub</string>
+    <string name="upload_discard">Discard and start over</string>
+    <string name="upload_err_zip_too_large">This ZIP is larger than 100 MB. Split the project or upload a folder instead.</string>
+    <string name="upload_err_folder">The selected folder could not be opened.</string>
+    <string name="upload_err_folder_invalid">The target folder is not valid. Use a relative path such as docs/images.</string>
+    <string name="upload_err_no_target">Choose a repository and branch first.</string>
+    <string name="upload_err_nothing">No uploadable files were found in your selection.</string>
+    <string name="upload_err_nothing_to_upload">There is nothing to upload: no selected file is new or changed.</string>
+    <string name="upload_err_denied">Android denied access to the selected item. Pick it again.</string>
+    <string name="upload_err_read">The selected content could not be read.</string>
+    <string name="upload_err_unexpected">Something went wrong while reading the files.</string>
+    <string name="preview_title">Review changes</string>
+    <string name="preview_summary" formatted="true">%1$d new · %2$d will replace existing files · %3$d unchanged · %4$d skipped</string>
+    <string name="preview_warn_replace" formatted="true">%1$d selected files already exist on GitHub and will be replaced by a new commit. Earlier versions stay in the history.</string>
+    <string name="preview_warn_truncated">GitHub returned only part of this repository\'s file list, so some files marked unknown may already exist and be replaced.</string>
+    <string name="preview_warn_secrets" formatted="true">%1$d selected files look like they contain credentials. Deselect them unless you are sure.</string>
+    <string name="preview_select_all">Select all</string>
+    <string name="preview_select_none">Select none</string>
+    <string name="preview_message_hint">Commit message</string>
+    <string name="preview_review_button" formatted="true">Review and upload %1$d files</string>
+    <string name="preview_nothing_to_upload">Nothing to upload</string>
+    <string name="file_status_new">New</string>
+    <string name="file_status_modified">Will replace</string>
+    <string name="file_status_unchanged">Unchanged (skipped)</string>
+    <string name="file_status_unknown">Unknown</string>
+    <string name="file_secret_warning" formatted="true">Possible credentials: %1$s</string>
+    <string name="confirm_title">Upload to GitHub?</string>
+    <string name="confirm_target" formatted="true">Repository %1$s, branch %2$s</string>
+    <string name="confirm_new" formatted="true">• %1$d new files</string>
+    <string name="confirm_replace" formatted="true">• %1$d existing files will be replaced</string>
+    <string name="confirm_unknown" formatted="true">• %1$d files whose status could not be determined</string>
+    <string name="confirm_size" formatted="true">• %1$s in total</string>
+    <string name="confirm_secrets" formatted="true">Warning: %1$d files may contain credentials and will be published.</string>
+    <string name="confirm_no_force">This creates one commit. It never force-pushes, and it stops if the branch changed since the preview.</string>
+    <string name="confirm_positive">Upload</string>
+    <string name="upload_progress_title">Uploading</string>
+    <string name="upload_stage_checking">Checking the branch…</string>
+    <string name="upload_stage_files">Uploading files…</string>
+    <string name="upload_stage_tree">Creating the file tree…</string>
+    <string name="upload_stage_commit">Creating the commit…</string>
+    <string name="upload_stage_branch">Updating the branch…</string>
+    <string name="upload_stage_cancelling">Cancelling after the current file…</string>
+    <string name="upload_progress_text" formatted="true">%1$d of %2$d files · %3$s of %4$s</string>
+    <string name="upload_keep_open">Keep the app open until this finishes. Nothing changes on GitHub until the final step.</string>
+    <string name="upload_use_cancel">Use Cancel to stop the upload.</string>
+    <string name="upload_done_title">Upload complete</string>
+    <string name="upload_done_message" formatted="true">Committed %1$d files to %2$s on %3$s.</string>
+    <string name="upload_no_changes_title">No changes</string>
+    <string name="upload_no_changes_message">Everything selected is already on GitHub, so no commit was made.</string>
+    <string name="upload_cancelled_title">Cancelled</string>
+    <string name="upload_cancelled_message">The upload was cancelled before the branch was updated. Nothing changed on GitHub.</string>
+    <string name="upload_failed_title">Upload failed</string>
+    <string name="upload_view_commit">View commit on GitHub</string>
+    <string name="upload_compare_again">Compare again</string>
+    <string name="history_clear">Clear</string>
+    <string name="history_clear_title">Clear history?</string>
+    <string name="history_clear_message">This removes the local list only. Nothing on GitHub changes.</string>
+    <string name="history_clear_confirm">Clear history</string>
+    <string name="history_empty">No operations yet. Uploads and created branches appear here.</string>
+    <string name="history_title_format" formatted="true">%1$s · %2$s</string>
+    <string name="history_meta_format" formatted="true">%1$s · %2$s</string>
+    <string name="history_type_upload">Upload</string>
+    <string name="history_type_branch">Create branch</string>
+    <string name="history_result_success">Success</string>
+    <string name="history_result_failed">Failed</string>
+    <string name="history_result_cancelled">Cancelled</string>
+    <string name="history_result_no_changes">No changes</string>
+    <string name="history_detail_repo" formatted="true">Repository: %1$s (%2$s)</string>
+    <string name="history_detail_result" formatted="true">Result: %1$s</string>
+    <string name="history_detail_when" formatted="true">When: %1$s</string>
+    <string name="history_detail_message" formatted="true">Message: %1$s</string>
+    <string name="history_detail_files" formatted="true">Files: %1$d (%2$s)</string>
+    <string name="history_detail_stage" formatted="true">Failed at: %1$s</string>
+    <string name="history_detail_error" formatted="true">Details: %1$s</string>
+    <string name="history_detail_sha" formatted="true">Commit: %1$s</string>
+    <string name="history_detail_uncertain">The connection was lost at the final step. The branch may or may not have been updated; check the repository on GitHub before uploading again.</string>
+    <string name="history_open_commit">Open on GitHub</string>
+    <string name="settings_account">Account</string>
+    <string name="settings_signed_in_as" formatted="true">Signed in as %1$s</string>
+    <string name="settings_method_oauth">Signed in with GitHub (OAuth)</string>
+    <string name="settings_method_pat">Signed in with a personal access token</string>
+    <string name="settings_scopes" formatted="true">Token scopes: %1$s</string>
+    <string name="settings_scopes_none">Token scopes: none</string>
+    <string name="settings_scopes_fine_grained">Fine-grained token: permissions are set per repository on GitHub.</string>
+    <string name="settings_sign_out">Sign out</string>
+    <string name="settings_sign_out_title">Sign out?</string>
+    <string name="settings_sign_out_message">The stored token is deleted from this device. Revoke it on GitHub as well if you no longer need it.</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_theme_system">System default</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_accent">Accent colour</string>
+    <string name="settings_ai">AI assistant</string>
+    <string name="settings_ai_configured">A provider is configured.</string>
+    <string name="settings_ai_not_configured">No provider is configured. AI features stay off until you add one.</string>
+    <string name="settings_ai_open">AI provider settings</string>
+    <string name="settings_security">Security and storage</string>
+    <string name="settings_security_text">Your GitHub token and AI key are encrypted with a key held in the Android Keystore. A rooted device or malware running as this app could still use them. Backups are disabled for this app.</string>
+    <string name="settings_clear_cache" formatted="true">Clear cache (%1$s)</string>
+    <string name="settings_cache_busy">Finish or discard the current upload before clearing the cache.</string>
+    <string name="settings_about">About</string>
+    <string name="settings_version" formatted="true">GitForge Pusher %1$s</string>
+    <string name="ai_not_configured">No AI provider is configured. Nothing is generated until you add a provider, model and API key.</string>
+    <string name="ai_configure">Set up AI provider</string>
+    <string name="ai_task_readme">README</string>
+    <string name="ai_task_review">Review</string>
+    <string name="ai_task_error">Explain error</string>
+    <string name="ai_hint_readme">Project description or file summary</string>
+    <string name="ai_hint_review">Code to review</string>
+    <string name="ai_hint_error">Error message or stack trace</string>
+    <string name="ai_use_project">Use the staged project</string>
+    <string name="ai_no_staged_project">Stage a project first (Upload, then select a ZIP, folder or files).</string>
+    <string name="ai_privacy_note">What you submit is sent to your AI provider with your API key. Do not include secrets.</string>
+    <string name="ai_run">Run</string>
+    <string name="ai_err_empty">Enter some text first.</string>
+    <string name="ai_copy">Copy</string>
+    <string name="ai_copied">Copied</string>
+    <string name="ai_secrets_title">Credentials detected</string>
+    <string name="ai_secrets_message" formatted="true">The text appears to contain: %1$s. Remove it before sending anything to an AI provider.</string>
+    <string name="ai_confirm_title">Send to AI provider?</string>
+    <string name="ai_confirm_message" formatted="true">About %1$d characters will be sent to %2$s.</string>
+    <string name="ai_confirm_send">Send</string>
+    <string name="ai_settings_title">AI provider</string>
+    <string name="ai_risk_note">Your API key is stored encrypted on this device, but a rooted device or malware could still extract it. Use a key with a spending limit. For a production deployment, call the provider through your own backend proxy instead of keeping a key in the app.</string>
+    <string name="ai_provider_openai">OpenAI-compatible (OpenAI or a custom endpoint)</string>
+    <string name="ai_provider_anthropic">Anthropic</string>
+    <string name="ai_provider_gemini">Google Gemini</string>
+    <string name="ai_base_url_hint">Base URL (https only)</string>
+    <string name="ai_model_hint">Model name</string>
+    <string name="ai_key_hint">API key</string>
+    <string name="ai_key_hint_stored">API key (leave empty to keep the stored key)</string>
+    <string name="ai_remove">Remove provider and key</string>
+    <string name="ai_remove_title">Remove AI provider?</string>
+    <string name="ai_remove_message">The stored API key and settings are deleted from this device.</string>
+    <string name="ai_remove_confirm">Remove</string>
+    <string name="ai_removed">Removed</string>
+    <string name="ai_saved">Saved</string>
 </resources>

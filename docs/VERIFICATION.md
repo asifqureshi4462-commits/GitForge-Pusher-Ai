@@ -1,35 +1,49 @@
-# Phase 2 - Verification ledger
+# Verification ledger (Phase 3)
 
-## A. Verified from official or primary sources (this session)
-| Item | Evidence |
+**Bottom line:** the Gradle build, Android lint, instrumented tests and on-device behaviour were **not run** by the author of
+this change (the authoring environment has no Android SDK, Gradle or network). You reported that the Phase 2 APK builds;
+the Phase 3 code has not been through a real build. The first GitHub Actions run decides.
+
+## A. Verified from official or primary sources
+| Item | Source |
 |---|---|
-| AGP 9.0.1 needs Gradle >= 9.1.0, JDK 17, SDK Build Tools 36.0.0; max API 36.1 | Android Developers AGP 9.0.1 release notes |
-| AGP 9 uses the new DSL; opt-out `android.newDsl=false`; AndroidX is the default | AGP 9.0 release notes / new-DSL page |
-| AGP 9 requires library consumers to use the same or higher compileSdk | AGP 9.0 release notes (basis for pinning older AndroidX) |
-| androidx appcompat 1.7.1, activity 1.12.2, navigation 2.9.7, core-splashscreen 1.2.0 exist as stable releases | Android Developers stable-channel page (current to 2026-10-21) |
-| Newer stable AndroidX exist (appcompat 1.8.0, fragment 1.9.1, navigation 2.10.2, room 2.8.5, work 2.12.0) | Same page. **Intentionally not used**: released Aug-Oct 2026 and may require a newer compileSdk than AGP 9.0.1 supports (max 36.1); their actual requirement was not checked |
-| Material Components 1.13.0 exists (minSdk 21, built with compileSdk 35); 1.14.0 is the latest stable | GitHub release notes (via dependency-update PR) and releases page |
-| Action majors exist: checkout v6, setup-java v5, setup-gradle v5, upload-artifact v7 | GitHub release notes / widely used workflow files (secondary sources) |
+| GitHub web flow supports PKCE but still requires `client_secret` at token exchange; GitHub advises native apps cannot keep it secret | GitHub Docs, "Authorizing OAuth apps" |
+| Device flow needs only `client_id`, must be enabled in the OAuth app, and polls `login/oauth/access_token` with `device_code` | Same page |
+| Retrofit 3.0.0 exists, uses OkHttp 4.12.0, and has a matching `converter-gson:3.0.0` | Retrofit release notes |
+| AGP 9.0.1 requires Gradle 9.1.0+, JDK 17, Build Tools 36.0.0 (unchanged from Phase 2) | Android Developers AGP 9.0 notes |
+| AndroidX stable releases recyclerview 1.4.0, swiperefreshlayout 1.2.0, documentfile 1.1.0, appcompat 1.7.1, activity 1.12.2, navigation 2.9.7, core-splashscreen 1.2.0 exist | Android Developers stable-channel page |
 
-## B. Executed in this environment (actual results)
+## B. Executed here (actual results)
 | Check | Result |
 |---|---|
-| `xmllint --noout` on all 26 XML files | All well-formed |
-| Script: every `@type/name` in XML and `R.type.name` in Java resolves to a defined resource; internal style parents resolve | 0 unresolved |
-| Script: nav-graph ids == bottom-nav menu ids == MainActivity top-level set; nav/manifest classes exist | Consistent |
-| JDK compiler API parse of all 8 Java files (`-source 17`) | 0 syntax errors; deliberately broken control file correctly flagged |
-| Type-check + run of `Accent`, `SettingsStore`, `ThemeManager`, `AppContainer`, `GitForgeApp` against hand-written stubs | Compiled; 14/14 behaviour checks passed. **Stubs are not the real Android SDK** |
+| `xmllint --noout` on all 42 XML files | All well-formed |
+| Resource cross-check: every `@type/name` in XML and `R.type.name` in Java resolves; every `binding.x` / `b.x` / `d.x` view id exists in its layout | 0 unresolved (library `@style/Widget.Material3.*` references are checked only by the real build) |
+| Navigation graph classes exist; menu ids equal nav ids; `MainActivity` top-level set matches the menu | Consistent |
+| JDK compiler-API parse of all 109 Java files (`-source 17`) | 0 syntax errors |
+| **53 JUnit tests of the pure-Java domain layer, compiled and run on JDK 21 with `-source 17` through a small hand-written JUnit shim** (not through Gradle/real JUnit) | **53 passed, 0 failed** |
+| Whole-project `javac` attempt without Android/Retrofit/Room jars | Not meaningful: ~1,800 errors are missing external packages. No error was reported against my own classes, but javac hides follow-on errors, so this proves little |
 
-## C. NOT verified (do not assume these work)
-- **The Gradle build, the APK, `testDebugUnitTest`, lint, and running on a device or emulator. None were run.**
-- `MainActivity`, `PendingFeatureFragment` and all XML were not compiled against the real Android/Material libraries
-  (no SDK). Style/attr names that depend on Material 1.13.0 (e.g. `Widget.Material3.BottomNavigationView`,
-  `colorSurfaceContainer*`, `boxCornerRadius*`) and core-splashscreen theme attributes are used from knowledge, not checked.
-- `junit:junit:4.13.2` (assumed available on Maven Central).
-- That `gradle/actions/setup-gradle` installs Gradle via `gradle-version` as written, and that
-  `$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager` exists on `ubuntu-latest`.
-- That Groovy `=` assignment syntax is accepted by AGP 9.0.1's new DSL in `app/build.gradle`.
-- That Navigation 2.9.7 / Activity 1.12.2 / Material 1.13.0 do not demand a compileSdk above 36.
-- Runtime behaviour: splash, edge-to-edge insets, bottom-nav icon rendering, accent overlays on a device.
-- Not yet chosen/verified (deferred to the phase that needs them): Retrofit, OkHttp, Gson, Room, WorkManager,
-  RecyclerView, ViewPager2, biometric, Glide, Android Studio / AndroidIDE compatibility with AGP 9.0.
+Domain tests cover: path traversal, ZIP-slip, size and count limits, invalid archives, root-folder stripping, Git blob
+hashing against known `git hash-object` values, secret detection (incl. the stateful-regex bug), token redaction,
+input validation, exact-SHA diffing, GitHub error mapping (rate limit vs permission, empty repo, non-fast-forward),
+pagination header, device-flow decisions, ref-path encoding, and the upload engine against a fake GitHub client
+(success, unchanged files, stale branch, cancellation never moving the branch, tree chunking, file modes, conflict,
+ambiguous final request). `AccentTest` (5 tests) needs the generated `R` class and runs only under Gradle.
+Expected Gradle total: 58 unit tests.
+
+## C. NOT verified - do not assume these work
+- **Gradle sync/build, the APK, `testDebugUnitTest` under real JUnit, lint, R8 release build, on-device or emulator runs.**
+- All Android classes (fragments, ViewModels, adapters, Keystore code, Room, Retrofit wiring) and all layouts were written
+  carefully but never compiled against the real libraries. Expect possible compile or inflation errors on the first build.
+- Library style/attribute names used from knowledge, not checked: `Widget.Material3.Button.{OutlinedButton,TextButton,TonalButton}`,
+  `Widget.Material3.Chip.Filter`, `Widget.Material3.CardView.Filled`, `colorSurfaceContainer*`, `app:endIconMode`.
+- Version compatibility not confirmed this session: `room 2.8.4`, `lifecycle 2.10.0`, `material 1.13.0` with compileSdk 36,
+  `junit 4.13.2`. (Newer Room 2.8.5 and Lifecycle 2.11.0 exist, which suggests the pinned ones do, but that is inference.)
+- Room's annotation processor under AGP 9 with the Groovy DSL, and `buildConfigField` in the new DSL.
+- Every GitHub Git Data API call and the device-flow endpoints were written from API knowledge and **never exercised against
+  github.com**. The empty-repository 409 behaviour is documented behaviour that was not re-tested.
+- AI provider request/response shapes (OpenAI chat completions, Anthropic messages, Gemini generateContent) are written
+  from knowledge and were not exercised against live services or re-checked against current docs.
+- Android Keystore AES-GCM behaviour on real devices (key invalidation, OEM quirks).
+- Storage Access Framework behaviour with different document providers; very large folder trees.
+- Accessibility, TalkBack, landscape and tablet layouts.
