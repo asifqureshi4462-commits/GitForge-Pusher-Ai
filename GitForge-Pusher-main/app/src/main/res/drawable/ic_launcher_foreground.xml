@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Interim brand mark (hexagon + push arrow). Replace with the final logo asset (see docs/DESIGN_TOKENS.md). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="@color/gf_brand_white"
+        android:pathData="M54,28L76.5,41L76.5,67L54,80L31.5,67L31.5,41Z" />
+    <path
+        android:fillColor="@color/gf_brand_indigo"
+        android:pathData="M54,38L64,50h-6v14h-8V50h-6Z" />
+</vector>

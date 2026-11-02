@@ -1,0 +1,69 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+// GitHub OAuth *client id* for the device flow. A client id is public (not a secret). It is read from the Gradle
+// property gitforge.githubClientId or the environment variable GITFORGE_GITHUB_CLIENT_ID; empty means
+// "OAuth not configured" and the app then offers token sign-in only. Never put a client SECRET anywhere in this app.
+def githubClientId = providers.gradleProperty('gitforge.githubClientId')
+        .orElse(providers.environmentVariable('GITFORGE_GITHUB_CLIENT_ID'))
+        .orElse('')
+        .get()
+        .trim()
+
+android {
+    namespace = 'com.asifqureshi.gitforge'
+    compileSdk = 36
+
+    defaultConfig {
+        applicationId = 'com.asifqureshi.gitforge'
+        minSdk = 26
+        targetSdk = 36
+        versionCode = 1
+        versionName = '0.3.0'
+        buildConfigField('String', 'GITHUB_CLIENT_ID', '"' + githubClientId.replace('"', '') + '"')
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix = '.debug'
+            versionNameSuffix = '-debug'
+        }
+        release {
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+}
+
+dependencies {
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.activity
+    implementation libs.androidx.navigation.fragment
+    implementation libs.androidx.navigation.ui
+    implementation libs.androidx.core.splashscreen
+    implementation libs.androidx.lifecycle.viewmodel
+    implementation libs.androidx.lifecycle.livedata
+    implementation libs.androidx.recyclerview
+    implementation libs.androidx.swiperefreshlayout
+    implementation libs.androidx.documentfile
+    implementation libs.androidx.room.runtime
+    annotationProcessor libs.androidx.room.compiler
+    implementation libs.retrofit
+    implementation libs.retrofit.converter.gson
+    implementation libs.okhttp
+
+    testImplementation libs.junit
+}

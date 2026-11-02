@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Navigation graph. The start destination is chosen in MainActivity (home when signed in, login otherwise).
+  Top-level destinations (home, repositories, ai, history, settings) show the bottom navigation bar; everything
+  else hides it. Destinations are reached by id (no actions needed).
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nav_graph"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.asifqureshi.gitforge.ui.auth.LoginFragment"
+        android:label="@string/login_title" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.asifqureshi.gitforge.ui.home.HomeFragment"
+        android:label="@string/nav_home" />
+
+    <fragment
+        android:id="@+id/repositoriesFragment"
+        android:name="com.asifqureshi.gitforge.ui.repos.RepositoriesFragment"
+        android:label="@string/nav_repositories" />
+
+    <fragment
+        android:id="@+id/repoDetailFragment"
+        android:name="com.asifqureshi.gitforge.ui.repos.RepoDetailFragment"
+        android:label="@string/repo_detail_title" />
+
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.asifqureshi.gitforge.ui.upload.UploadFragment"
+        android:label="@string/upload_title" />
+
+    <fragment
+        android:id="@+id/uploadPreviewFragment"
+        android:name="com.asifqureshi.gitforge.ui.upload.UploadPreviewFragment"
+        android:label="@string/preview_title" />
+
+    <fragment
+        android:id="@+id/uploadProgressFragment"
+        android:name="com.asifqureshi.gitforge.ui.upload.UploadProgressFragment"
+        android:label="@string/upload_progress_title" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.asifqureshi.gitforge.ui.history.HistoryFragment"
+        android:label="@string/nav_history" />
+
+    <fragment
+        android:id="@+id/aiFragment"
+        android:name="com.asifqureshi.gitforge.ui.ai.AiFragment"
+        android:label="@string/nav_ai" />
+
+    <fragment
+        android:id="@+id/aiSettingsFragment"
+        android:name="com.asifqureshi.gitforge.ui.ai.AiSettingsFragment"
+        android:label="@string/ai_settings_title" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.asifqureshi.gitforge.ui.settings.SettingsFragment"
+        android:label="@string/nav_settings" />
+</navigation>

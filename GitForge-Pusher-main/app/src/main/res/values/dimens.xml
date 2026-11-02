@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing scale -->
+    <dimen name="gf_space_xs">4dp</dimen>
+    <dimen name="gf_space_sm">8dp</dimen>
+    <dimen name="gf_space_md">12dp</dimen>
+    <dimen name="gf_space_lg">16dp</dimen>
+    <dimen name="gf_space_xl">24dp</dimen>
+    <dimen name="gf_space_xxl">32dp</dimen>
+
+    <!-- Shape -->
+    <dimen name="gf_radius_card">16dp</dimen>
+    <dimen name="gf_radius_button">12dp</dimen>
+    <dimen name="gf_radius_input">12dp</dimen>
+    <dimen name="gf_stroke_hairline">1dp</dimen>
+
+    <!-- Sizes -->
+    <dimen name="gf_button_height">48dp</dimen>
+    <dimen name="gf_min_touch_target">48dp</dimen>
+    <dimen name="gf_icon_size">24dp</dimen>
+</resources>

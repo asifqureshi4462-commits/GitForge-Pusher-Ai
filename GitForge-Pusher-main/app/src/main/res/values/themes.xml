@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Main app theme. DayNight switches colour resources between values/ and values-night/. -->
+    <style name="Theme.GitForge" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gf_primary</item>
+        <item name="colorOnPrimary">@color/gf_on_primary</item>
+        <item name="colorPrimaryContainer">@color/gf_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/gf_on_primary_container</item>
+        <item name="colorSecondary">@color/gf_secondary</item>
+        <item name="colorOnSecondary">@color/gf_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/gf_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/gf_on_secondary_container</item>
+        <item name="colorError">@color/gf_error</item>
+        <item name="colorOnError">@color/gf_on_error</item>
+
+        <item name="android:colorBackground">@color/gf_background</item>
+        <item name="colorOnBackground">@color/gf_on_surface</item>
+        <item name="colorSurface">@color/gf_surface</item>
+        <item name="colorOnSurface">@color/gf_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/gf_on_surface_muted</item>
+        <item name="colorSurfaceContainerLow">@color/gf_surface_container_low</item>
+        <item name="colorSurfaceContainer">@color/gf_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/gf_surface_container_high</item>
+        <item name="colorOutline">@color/gf_outline</item>
+        <item name="colorOutlineVariant">@color/gf_outline_variant</item>
+
+        <item name="gfColorSuccess">@color/gf_success</item>
+        <item name="gfColorWarning">@color/gf_warning</item>
+        <item name="gfColorInfo">@color/gf_info</item>
+        <item name="gfColorTextMuted">@color/gf_on_surface_muted</item>
+
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.GitForge.H1</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.GitForge.H2</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.GitForge.H3</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.GitForge.Body</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.GitForge.Caption</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.GitForge.Button</item>
+
+        <item name="materialButtonStyle">@style/Widget.GitForge.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.GitForge.Card</item>
+        <item name="bottomNavigationStyle">@style/Widget.GitForge.BottomNavigation</item>
+        <item name="textInputStyle">@style/Widget.GitForge.TextInputLayout</item>
+    </style>
+
+    <!-- Launch theme: system splash screen, then switches to Theme.GitForge. -->
+    <style name="Theme.GitForge.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/gf_splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.GitForge</item>
+    </style>
+</resources>
